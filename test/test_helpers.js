@@ -1,5 +1,5 @@
 import { domHelpers } from "htmlbars/runtime/dom_helpers";
-import { domStringHelpers } from "htmlbars/runtime/domstring_helpers";
+import { domStringHelpers } from "htmlbars/runtime/domstring/dom_helpers";
 
 export var dom = domHelpers({
   fragmentToString: function(fragment){
