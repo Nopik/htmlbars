@@ -83,3 +83,20 @@ test("element helper works", function() {
 
   equal(compiled.toString(), '<div foo="bar" data-htmlbars="0">baz</div>');
 });
+
+test("if helper works", function() {
+  /* jshint evil: true */
+  var ast = preprocess('a{{#if bar}}b{{/if}}c');
+  var compiler = new TemplateCompiler(domStringHelpers());
+
+  var program = compiler.compile(ast);
+
+  var template = new Function("dom", "Placeholder", "return " + program)(dom, Placeholder);
+
+  var compiled = template({
+    }, {
+      helpers: helpers()
+  });
+
+  equal(compiled.toString(), '');
+});
